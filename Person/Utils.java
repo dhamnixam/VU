@@ -2,6 +2,8 @@ package Person;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Utils {
 
@@ -53,26 +55,9 @@ public class Utils {
     public static boolean isPhoneNumberValid(String phoneNumber) {
         return phoneNumber.matches("^09\\d{9}$");
     }
-
-    public void printServerTime() {
-        long currentTimeInMilliseconds = System.currentTimeMillis();
-
-        // Convert milliseconds to seconds
-        long currentTimeInSeconds = currentTimeInMilliseconds / 1000;
-
-        // Convert seconds to minutes
-        long currentTimeInMinutes = currentTimeInSeconds / 60;
-
-        // Convert minutes to hours
-        long currentTimeInHours = currentTimeInMinutes / 60;
-
-        // Calculate remaining seconds
-        long remainingSeconds = currentTimeInSeconds % 60;
-
-        // Calculate remaining minutes
-        long remainingMinutes = currentTimeInMinutes % 60;
-
-        // Print the time
-        System.out.printf("Server Time (HH:mm:ss): %02d:%02d:%02d%n", currentTimeInHours, remainingMinutes, remainingSeconds);
+    public static void showTime() {
+            SimpleDateFormat formatter = new SimpleDateFormat("hh:mm:ss");
+            String formattedTime = formatter.format(new Date());
+            System.out.println("Time: " + formattedTime);
     }
 }
