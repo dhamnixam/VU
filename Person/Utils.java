@@ -53,4 +53,26 @@ public class Utils {
     public static boolean isPhoneNumberValid(String phoneNumber) {
         return phoneNumber.matches("^09\\d{9}$");
     }
+
+    public void printServerTime() {
+        long currentTimeInMilliseconds = System.currentTimeMillis();
+
+        // Convert milliseconds to seconds
+        long currentTimeInSeconds = currentTimeInMilliseconds / 1000;
+
+        // Convert seconds to minutes
+        long currentTimeInMinutes = currentTimeInSeconds / 60;
+
+        // Convert minutes to hours
+        long currentTimeInHours = currentTimeInMinutes / 60;
+
+        // Calculate remaining seconds
+        long remainingSeconds = currentTimeInSeconds % 60;
+
+        // Calculate remaining minutes
+        long remainingMinutes = currentTimeInMinutes % 60;
+
+        // Print the time
+        System.out.printf("Server Time (HH:mm:ss): %02d:%02d:%02d%n", currentTimeInHours, remainingMinutes, remainingSeconds);
+    }
 }

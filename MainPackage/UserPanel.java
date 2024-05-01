@@ -39,6 +39,6 @@ public class UserPanel {
 
     public static int getInformationAmount() {
         return informationAmount;
-    }
+    }       
     
 }
