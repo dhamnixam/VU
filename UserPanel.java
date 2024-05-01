@@ -1,3 +1,5 @@
+import Person.*;
+
 public class UserPanel {
     Person user;
     public static Information[] information;

@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
-import Person.Student;
-import Person.Teacher;
+import Person.*;
 
 public class LoginPage {
 

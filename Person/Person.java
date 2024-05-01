@@ -1,5 +1,7 @@
 package Person;
 
+import Task.*;
+
 public abstract class Person {
     private String name;
     private String lastName;
