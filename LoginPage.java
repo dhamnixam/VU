@@ -1,5 +1,8 @@
 import java.util.Scanner;
 
+import Person.Student;
+import Person.Teacher;
+
 public class LoginPage {
 
     private Person user;
