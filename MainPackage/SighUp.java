@@ -57,46 +57,46 @@ public class SighUp {
         in.nextLine();  //fix the bug of get an extra line from user
         sw = false;
 
-        // do {
-        //     System.out.print("name: ");
+        do {
+            System.out.print("name: ");
 
-        //     if (user.setName(in.nextLine()))
-        //         sw = true;
-        //     else
-        //         System.out.println(errorMessage);
+            if (user.setName(in.nextLine()))
+                sw = true;
+            else
+                System.out.println(errorMessage);
 
-        // } while (sw == false) ;
-        // sw = false;
+        } while (sw == false) ;
+        sw = false;
         
         
-        // do {
-        //     System.out.print("last name: ");
-        //     if (user.setLastName(in.nextLine()))
-        //         sw = true;
-        //     else
-        //         System.out.println(errorMessage);
-        // } while (sw == false) ;
-        // sw = false;
+        do {
+            System.out.print("last name: ");
+            if (user.setLastName(in.nextLine()))
+                sw = true;
+            else
+                System.out.println(errorMessage);
+        } while (sw == false) ;
+        sw = false;
 
 
-        // do {
-        //     System.out.print("username: ");
-        //     if (user.setUsername(in.nextLine()))
-        //         sw = true;
-        //     else
-        //         System.out.println(errorMessage);
-        // } while (sw == false) ;
-        // sw = false;
+        do {
+            System.out.print("username: ");
+            if (user.setUsername(in.nextLine()))
+                sw = true;
+            else
+                System.out.println(errorMessage);
+        } while (sw == false) ;
+        sw = false;
 
 
-        // do {
-        //     System.out.print("field: ");
-        //     if (user.setField(in.nextLine()))
-        //         sw = true;
-        //     else
-        //         System.out.println(errorMessage);
-        // } while (sw == false) ;
-        // sw = false;
+        do {
+            System.out.print("field: ");
+            if (user.setField(in.nextLine()))
+                sw = true;
+            else
+                System.out.println(errorMessage);
+        } while (sw == false) ;
+        sw = false;
 
 
         do {
@@ -109,24 +109,24 @@ public class SighUp {
         sw = false;
 
 
-        // do {
-        //     System.out.print("email: ");
-        //     if (user.setEmail(in.nextLine()))
-        //         sw = true;
-        //     else
-        //         System.out.println(errorMessage);
-        // } while (sw == false) ;
-        // sw = false;
+        do {
+            System.out.print("email: ");
+            if (user.setEmail(in.nextLine()))
+                sw = true;
+            else
+                System.out.println(errorMessage);
+        } while (sw == false) ;
+        sw = false;
 
 
-        // do {
-        //     System.out.print("phone number: ");
-        //     if (user.setPhoneNumber(in.nextLine()))
-        //         sw = true;
-        //     else
-        //         System.out.println(errorMessage);
-        // } while (sw == false) ;
-        // sw = false;
+        do {
+            System.out.print("phone number: ");
+            if (user.setPhoneNumber(in.nextLine()))
+                sw = true;
+            else
+                System.out.println(errorMessage);
+        } while (sw == false) ;
+        sw = false;
 
         do {
             System.out.print("password: ");
@@ -138,14 +138,14 @@ public class SighUp {
         sw = false;
 
 
-        // do {
-        //     System.out.print("repeat password: ");
-        //     repeat_password = in.nextLine();
-        //     if (Utils.isPasswordValid(repeat_password) && repeat_password.equals(user.getPassword()))
-        //         sw = true;
-        //     else
-        //         System.out.println(errorMessage); 
-        // } while (sw == false) ;
+        do {
+            System.out.print("repeat password: ");
+            repeat_password = in.nextLine();
+            if (Utils.isPasswordValid(repeat_password) && repeat_password.equals(user.getPassword()))
+                sw = true;
+            else
+                System.out.println(errorMessage); 
+        } while (sw == false) ;
 
         addNewPerson(user);
     }

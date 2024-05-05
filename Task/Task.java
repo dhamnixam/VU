@@ -5,6 +5,10 @@ public abstract class Task {
     protected double start_time;
     protected double end_time;
 
+    public final int VALUE_OF_QUIZ = -1;
+    public final int VALUE_OF_EXAM = 0;
+    public final int VALUE_OF_HOMEWORK = 1;
+
     public Task(String subject, double start_time, double end_time) {
         setStart_time(start_time);
         setEnd_time(end_time);

@@ -71,6 +71,5 @@ public class LoginPage {
 
     private void transferToUserPanel(Person person) throws InterruptedException {
         UserPanel userPanel = new UserPanel(person);
-        userPanel.showPanelStatus();
     }
 }

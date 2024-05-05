@@ -6,6 +6,7 @@ import MainPackage.*;
 public abstract class Person {
     private String name;
     private String lastName;
+    private String fullName;
     private String username;
     private String field;
     protected String ID_number;
@@ -16,29 +17,12 @@ public abstract class Person {
     protected final int student_role = 1;
     protected final int teacher_role = 2;
     protected final int admin_role = 3;
-    
+
 
     public Task[] tasks;
     public int taskCount = 0;
     private final int MAX_TASK_NUMBER = 10;
 
-    public void addNewHomeWork(String subject, double setStart_time, double end_time) {
-        HomeWork homeWork = new HomeWork(subject, setStart_time, end_time);
-        tasks[taskCount] = homeWork;
-        taskCount++;
-    }
-
-    public void addNewQuiz(String subject, double setStart_time, double end_time) {
-        Quiz quiz = new Quiz(subject, setStart_time, end_time);
-        tasks[taskCount] = quiz;
-        taskCount++;
-    }
-
-    public void addNewExam(String subject, double setStart_time, double end_time) {
-        Exam exam = new Exam(subject, setStart_time, end_time);
-        tasks[taskCount] = exam;
-        taskCount++;
-    }
 
     public void printTasks() throws InterruptedException {
         for (int i = 0; i < taskCount; i++) {
@@ -72,6 +56,9 @@ public abstract class Person {
     public boolean setName(String name) {
         if (Utils.isNameValid(name)) {
             this.name = name;
+            if (lastName != null) {
+                setFullName();
+            }
             return true;
         }
         else
@@ -81,10 +68,17 @@ public abstract class Person {
     public boolean setLastName(String lastName) {
         if (Utils.isNameValid(lastName)) {
             this.lastName = lastName;
+            if (name != null) {
+                setFullName();
+            }
             return true;
         }
         else
             return false;
+    }
+
+    private void setFullName() {
+        this.fullName = name + " " + lastName;
     }
 
     public boolean setUsername(String username) {
@@ -178,6 +172,10 @@ public abstract class Person {
 
     public String getPassword() {
         return password;
+    }
+
+    public String getFullName() {
+        return fullName;
     }
 
 }
