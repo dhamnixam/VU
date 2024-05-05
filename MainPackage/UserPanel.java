@@ -83,19 +83,21 @@ public class UserPanel {
             }
 
             System.out.print("subject: ");
-            String subject = in.nextLine(); //this nextLine dosn't work
+            String subject = in.nextLine(); //this nextLine doesn't work
             subject = in.nextLine();
             System.out.print("start time (use flote nubmer for time like 14.15): ");
             double start_time = in.nextDouble();
             System.out.print("finish time: ");
             double finish_time = in.nextDouble();
+            System.out.print("number of questions: ");
+            int numbers = in.nextInt();
 
             switch (command) {
                 case "quiz":
                     ((Teacher)user).addNewQuiz(subject, start_time, finish_time);//باید این متد را در اذمین هم پیاده سازی کنیم
                     break;
                 case "exam":
-                    ((Teacher)user).addNewExam(subject, start_time, finish_time);
+                    ((Teacher)user).addNewExam(subject, start_time, finish_time ,numbers);
                     break;
                 case "homework":
                     ((Teacher)user).addNewHomeWork(subject, start_time, finish_time);
@@ -146,7 +148,7 @@ public class UserPanel {
             switch (command) {
                 case 1:
                     user.printTasks();
-                    if (user instanceof Student == false) {
+                    if (!(user instanceof Student)) {
                         task_tab();
                     }
                     break;

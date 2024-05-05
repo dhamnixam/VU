@@ -3,6 +3,7 @@ package Person;
 import java.util.Scanner;
 
 import Task.*;
+import question.questionType;
 
 public class Teacher extends Person{
     protected Student[] students;   //students of this teacher
@@ -46,8 +47,8 @@ public class Teacher extends Person{
             System.out.println("your tasks are too many! remove some tasks");
     }
 
-    public void addNewExam(String subject, double setStart_time, double end_time) {
-        Exam exam = new Exam(subject, setStart_time, end_time);
+    public void addNewExam(String subject, double setStart_time, double end_time  , int numbers) {
+        Exam exam = new Exam(subject, setStart_time, end_time ,numbers);
         if (taskCount < tasks.length) {
             tasks[taskCount] = exam;
             taskCount++;

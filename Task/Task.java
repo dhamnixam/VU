@@ -10,6 +10,7 @@ public abstract class Task {
     public final int VALUE_OF_HOMEWORK = 1;
 
     public Task(String subject, double start_time, double end_time) {
+        this.subject = subject;
         setStart_time(start_time);
         setEnd_time(end_time);
     }

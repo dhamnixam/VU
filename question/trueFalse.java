@@ -3,7 +3,7 @@ package question;
 import java.util.Scanner;
 
 public class trueFalse extends question{
-    private boolean answer ;
+    private final boolean  answer ;
 
     public trueFalse(String title, boolean answer) {
         this.title = title;
@@ -18,7 +18,7 @@ public class trueFalse extends question{
         boolean i;
         System.out.println("pls Enter your Answer : ");
         i = input.nextBoolean();
-        while (i != true || i != false) {
+        while (!input.hasNextBoolean()) {
             System.out.println("pls Enter boolean :");
             i = input.nextBoolean();
         }
