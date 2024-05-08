@@ -1,14 +1,15 @@
-package Inforamtion;
+package Notification;
 
-public class Information {
+public class Notification {
+
     private String passage;
-    
-    public Information(String info_passage) {
+
+    public Notification(String info_passage) {
         setPassage(info_passage);
     }
 
     public void setPassage(String passage) {
-        if (passage.isEmpty() == false) 
+        if (passage.isEmpty() == false)
             this.passage = passage;
         else
             this.passage = "Empty passage";
@@ -19,8 +20,7 @@ public class Information {
     }
 
     public String toString() {
-        return "Inforamtion:\n" + this.passage;
+        return "Notification:\n" + this.passage;
     }
 
-    
 }

@@ -1,19 +1,19 @@
 package MainPackage;
 
 import Person.*;
-import Inforamtion.*;
+import Notification.*;
 import java.util.Scanner;
 
 public class UserPanel {
     Person user;
-    public static Information[] information;
-    private static int informationAmount;
+    public static Notification[] Notification;
+    private static int NotificationAmount;
 
     static {
-        information = new Information[10];
-        information[0] = new Information("code 122 of math tomorrow is cancle, good lock.");//defaulte information
-        information[1] = new Information("in 3nd of june at 'A' edge will hold a conferanse around 2 hours for computer engeeniers");//defaulte information
-        informationAmount = 2;
+        Notification = new Notification[10];
+        Notification[0] = new Notification("code 122 of math tomorrow is cancle, good lock.");//defaulte information
+        Notification[1] = new Notification("in 3nd of june at 'A' edge will hold a conferanse around 2 hours for computer engeeniers");//defaulte information
+        NotificationAmount = 2;
     }
 
     //constructor
@@ -30,12 +30,12 @@ public class UserPanel {
     }
 
     public static void addNewInformation(String information_passage) {
-        information[informationAmount] = new Information(information_passage);
-        informationAmount++;
+        Notification[NotificationAmount] = new Notification(information_passage);
+        NotificationAmount++;
     }
 
     public static int getInformationAmount() {
-        return informationAmount;
+        return NotificationAmount;
     }
 
     private void task_tab() throws InterruptedException {
