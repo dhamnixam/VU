@@ -1,6 +1,9 @@
 package Person;
 
 import Task.*;
+
+import java.util.Scanner;
+
 import MainPackage.*;
 
 public abstract class Person {
@@ -25,11 +28,22 @@ public abstract class Person {
 
 
     public void printTasks() throws InterruptedException {
+        System.out.println("---YOUR TASKS---");
         for (int i = 0; i < taskCount; i++) {
-            System.out.println(tasks[i].toString());
+            System.out.println(Integer.toString(i + 1) + tasks[i].getSubject());
             System.out.println("------------------");
             Thread.sleep(1000);
         }
+
+        Scanner in = new Scanner(System.in);
+
+        System.out.println("press 0 or an invalid number to continue and press the number of task to see its details");
+
+        int command = in.nextInt();
+        if (command > taskCount || command == 0) 
+            return;
+        else 
+            printTask_details(command - 1);
     }
 
     public void printInformation() throws InterruptedException {
@@ -38,6 +52,18 @@ public abstract class Person {
             System.out.println("------------------");
             Thread.sleep(1000);
         }
+    }
+
+    public void printTask_details(int i) throws InterruptedException {
+        System.out.println("------------------------");
+        System.out.println("-------------------");
+        System.out.println("--------------");
+        System.out.println(tasks[i].toString());
+        System.out.println("--------------");
+        System.out.println("-------------------");
+        System.out.println("------------------------");
+        Thread.sleep(750);
+        printTasks();
     }
 
     public void printProfile() throws InterruptedException {

@@ -49,6 +49,10 @@ public abstract class Task {
         
     }
 
+    public String getSubject() {
+        return subject;
+    }
+
     public String timeToString(double time) {
         int houre = (int)time;
         int minute = (int)time - houre;
