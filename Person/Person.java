@@ -37,7 +37,10 @@ public abstract class Person {
 
         Scanner in = new Scanner(System.in);
 
-        System.out.println("press 0 or an invalid number to continue and press the number of task to see its details");
+        if (taskCount == 0) 
+            System.out.println("you don't have any task yet. you can press 0 to continue.");
+        else
+            System.out.println("press 0 or an invalid number to continue and press the number of task to see its details.");
 
         int command = in.nextInt();
         if (command > taskCount || command == 0) 

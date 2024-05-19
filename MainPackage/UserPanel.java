@@ -42,12 +42,14 @@ public class UserPanel {
         System.out.println("---TASK TAB---");
         Scanner in = new Scanner(System.in);
         String command = "";
-        while (!command.equals("back")) {
+        while (true) {
             System.out.println("write [add] to add a new task");
             Thread.sleep(750);
             System.out.println("write [remove] to remove task");
             Thread.sleep(750);
             System.out.println("write [back] to back");
+            Thread.sleep(750);
+            System.out.println("write [home] to main tab");
             command = in.next();
             switch (command) {
                 case "add":
@@ -56,18 +58,23 @@ public class UserPanel {
                 case "remove":
                     removeTask_tab();
                     break;
+                case "back":
+                user.printTasks();
+                    break;
+                case "home":
+                    main_tab();
+                    break;
             
                 default:
                     break;
             }
         }
-        main_tab();
     }
 
     private void addTask_tab() throws InterruptedException {
         Scanner in = new Scanner(System.in);
         String command = "";
-        while (!command.equals("back")) {
+        while (true) {
             System.out.println("[quiz] to add quiz");
             Thread.sleep(750);
             System.out.println("[exam] to add exam");
@@ -75,17 +82,24 @@ public class UserPanel {
             System.out.println("[homework] to add home work");
             Thread.sleep(750);
             System.out.println("[back] to back");
+            Thread.sleep(750);
+            System.out.println("[home] to main tab");
+            
             command = in.next();
 
             if (command.equals("back")) {
                 task_tab();
                 return;
             }
+            else if (command.equals("home")) {
+                main_tab();
+                return;
+            }
 
             System.out.print("subject: ");
             String subject = in.nextLine(); //this nextLine doesn't work
             subject = in.nextLine();
-            System.out.print("start time (use flote nubmer for time like 14.15): ");
+            System.out.print("start time (use flote nubmer for time like 14.15:) ");
             double start_time = in.nextDouble();
             System.out.print("finish time: ");
             double finish_time = in.nextDouble();
@@ -108,7 +122,6 @@ public class UserPanel {
             }
             Thread.sleep(1000);
         }
-        task_tab();
     }
 
     private void removeTask_tab() throws InterruptedException {
@@ -119,12 +132,19 @@ public class UserPanel {
             System.out.println("[remove] to remove another student: ");
             Thread.sleep(750);
             System.out.println("[back] to back: ");
+            Thread.sleep(750);
+            System.out.println("[home] to main tab: ");
             command = in.next();
 
-            if (command.equals("back")) 
-                break;
+            if (command.equals("back")) {
+                task_tab();
+                return;
+            }
+            else if (command.equals("home")) {
+                main_tab();
+                return;
+            }
         }
-        task_tab();
     }
 
     
