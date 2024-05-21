@@ -10,6 +10,24 @@ public class Admin extends Person{
         addUserToSystem(this);  //add admin in system :)
     }
 
+    @Override 
+    public String toString() {
+        String str = "Username: " + getUsername() + "\n" + "Role: Teacher";
+        return str;
+    }
+
+    @Override
+    public  boolean equals(Object obj) {
+        if (obj instanceof Admin) {
+            if (((Admin)obj).getUsername().equals(this.getUsername()) || ((Admin)obj).getPassword().equals(this.getPassword()))
+                return true;
+            else 
+                return false;
+        }
+        else 
+            return false;
+    }
+
     public boolean setID_number(String ID_number) {
         if (Utils.adminIsEduNumberValid(ID_number)) { 
             this.ID_number = ID_number;

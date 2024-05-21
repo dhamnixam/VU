@@ -1,10 +1,10 @@
-package Notification;
+package Informaion;
 
-public class Notification {
+public class Informaion {
 
     private String passage;
 
-    public Notification(String info_passage) {
+    public Informaion(String info_passage) {
         setPassage(info_passage);
     }
 
@@ -20,7 +20,7 @@ public class Notification {
     }
 
     public String toString() {
-        return "Notification:\n" + this.passage;
+        return this.passage;
     }
 
 }

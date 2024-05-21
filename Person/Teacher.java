@@ -3,7 +3,6 @@ package Person;
 import java.util.Scanner;
 
 import Task.*;
-import question.questionType;
 
 public class Teacher extends Person{
     protected Student[] students;   //students of this teacher
@@ -14,6 +13,24 @@ public class Teacher extends Person{
         students = new Student[10];
     }
 
+    @Override 
+    public String toString() {
+        String str = "Username: " + getUsername() + "\n" + "Role: Teacher";
+        return str;
+    }
+
+    @Override
+    public  boolean equals(Object obj) {
+        if (obj instanceof Teacher) {
+            if (((Teacher)obj).getUsername().equals(this.getUsername()) || ((Teacher)obj).getPassword().equals(this.getPassword()))
+                return true;
+            else 
+                return false;
+        }
+        else 
+            return false;
+    }
+ 
     public boolean setID_number(String ID_number) {
         if (Utils.TeacherIsEduNumberValid(ID_number)) { 
             this.ID_number = ID_number;
@@ -32,8 +49,6 @@ public class Teacher extends Person{
         }
         else
             System.out.println("your tasks are too many! remove some tasks");
-        
-        
     }
 
     public void addNewQuiz(String subject, double setStart_time, double end_time) {
@@ -123,7 +138,7 @@ public class Teacher extends Person{
         boolean sw = true;
         for (int i = 0; students.length > i ; i++) {
             if (students[i].getID_number().equals(std.getID_number()) && students[i].getFullName().equals(std.getFullName())) {
-                System.out.println("Teacher have this student already!");
+                System.out.println("You have this student already!");
                 sw = false;
                 break;
             }
@@ -135,7 +150,7 @@ public class Teacher extends Person{
             }
         }
         if (sw) {
-            System.out.println("This teacher cannot have another student.");
+            System.out.println("You can't, have another student.");
         }
     }
 }

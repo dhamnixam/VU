@@ -9,6 +9,24 @@ public class Student extends Person{
         // teachers = new Teacher[10];
     }
 
+    @Override 
+    public String toString() {
+        String str = "Username: " + getUsername() + "\n" + "Role: Teacher";
+        return str;
+    }
+
+    @Override
+    public  boolean equals(Object obj) {
+        if (obj instanceof Student) {
+            if (((Student)obj).getUsername().equals(this.getUsername()) || ((Student)obj).getPassword().equals(this.getPassword()))
+                return true;
+            else 
+                return false;
+        }
+        else 
+            return false;
+    }
+
     public boolean setID_number(String ID_number) {
         if (Utils.stuIsEduNumberValid(ID_number)) { 
             this.ID_number = ID_number;

@@ -1,19 +1,21 @@
 package MainPackage;
 
 import Person.*;
-import Notification.*;
+
 import java.util.Scanner;
+
+import Informaion.*;
 
 public class UserPanel {
     Person user;
-    public static Notification[] Notification;
-    private static int NotificationAmount;
+    public static Informaion[] Informaion;
+    private static int InformationAmount;
 
     static {
-        Notification = new Notification[10];
-        Notification[0] = new Notification("code 122 of math tomorrow is cancle, good lock.");//defaulte information
-        Notification[1] = new Notification("in 3nd of june at 'A' edge will hold a conferanse around 2 hours for computer engeeniers");//defaulte information
-        NotificationAmount = 2;
+        Informaion = new Informaion[10];
+        Informaion[0] = new Informaion("math-122 tomorrow is cancle, good lock.");//defaulte information
+        Informaion[1] = new Informaion("in 3nd of june at 'A' edge will hold a conferanse around 2 hours for computer engeeniers");//defaulte information
+        InformationAmount = 2;
     }
 
     //constructor
@@ -29,13 +31,41 @@ public class UserPanel {
         user.printInformation();
     }
 
-    public static void addNewInformation(String information_passage) {
-        Notification[NotificationAmount] = new Notification(information_passage);
-        NotificationAmount++;
+    private static void addNewInformation(String information_passage) {
+        Informaion[InformationAmount] = new Informaion(information_passage);
+        InformationAmount++;
+    }
+
+    private void deleteInformation() throws InterruptedException {
+        user.printInformation();
+        Scanner in = new Scanner(System.in);
+        System.out.println("Which one do you want to delete? press it's number.If you inseart an invalid number it will cancle");
+        int index = in.nextInt() - 1;
+        if (index >= 0 && index < InformationAmount) {
+            Informaion[index] = null;
+            for (int i = index; i + 1 < InformationAmount; i++) {
+                Informaion[i+1] = Informaion[i];
+            }
+            InformationAmount--;
+            System.out.println("Information deleted successfuly");
+        }
+        
+    }
+
+    private void deleteInformation(int index) throws InterruptedException {
+        if (index >= 0 && index < InformationAmount) {
+            Informaion[index] = null;
+            for (int i = index; i + 1 < InformationAmount; i++) {
+                Informaion[i+1] = Informaion[i];
+            }
+            InformationAmount--;
+            System.out.println("Information deleted successfuly");
+        }
+        
     }
 
     public static int getInformationAmount() {
-        return NotificationAmount;
+        return InformationAmount;
     }
 
     private void task_tab() throws InterruptedException {
@@ -147,6 +177,39 @@ public class UserPanel {
         }
     }
 
+
+    private void information_mannager_tab() throws InterruptedException {
+        System.out.println("---INFORMATION MANNAGER TAB---");
+        System.out.println("Do you want to add a new information of delete some?");
+        Thread.sleep(700);
+        System.out.println("Press [a] to add and [d] to delete");
+        System.out.println("write [back] to back and [home] for main tab");
+        String command = "";
+        Scanner in = new Scanner(System.in);
+        while (true) {
+            command = in.next();
+            switch (command) {
+                case "a":
+                    System.out.println("Write the information passage and press Enter to add");
+                    addNewInformation(in.nextLine());
+                    break;
+                case "d":
+                    deleteInformation();
+                    break;
+                case "home":
+                    main_tab();
+                    break;
+                case "back":
+                    main_tab();
+                    break;
+
+            
+                default:
+                    break;
+            }
+        }
+    }
+
     
     private void main_tab() throws InterruptedException {
         System.out.println("---MAIN TAB---");
@@ -161,6 +224,10 @@ public class UserPanel {
             Thread.sleep(750);
             System.out.println("your profile : 3");
             Thread.sleep(750);
+            if (user instanceof Teacher) {
+                System.out.println("Add new student : 4");
+                Thread.sleep(750);
+            }
             System.out.println("exit : 0");
             Thread.sleep(750);
             System.out.print("Type a number here: ");
@@ -174,9 +241,18 @@ public class UserPanel {
                     break;
                 case 2:
                     user.printInformation();
+                    if (!(user instanceof Student)) {
+                        information_mannager_tab();
+                    }
                     break;
                 case 3:
                     user.printProfile();
+                    break;
+                case 4:
+                    if (user instanceof Teacher)
+                        ((Teacher)user).addStudent();
+                    else 
+                        System.out.println("Input is invalid!");
                     break;
                                 
                 default:

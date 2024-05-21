@@ -51,10 +51,12 @@ public abstract class Person {
 
     public void printInformation() throws InterruptedException {
         for (int i = 0; i < UserPanel.getInformationAmount(); i++) {
-            System.out.println(UserPanel.Notification[i].toString());
-            System.out.println("------------------");
-            Thread.sleep(1000);
+            System.out.println(Integer.toString(i-1) + "-" + UserPanel.Informaion[i].toString());
         }
+            
+        System.out.println("------------------");
+        Thread.sleep(1000);
+            
     }
 
     public void printTask_details(int i) throws InterruptedException {
@@ -75,6 +77,12 @@ public abstract class Person {
         System.out.println("name :" + this.name);
         Thread.sleep(1000);
     }
+
+    @Override
+    public abstract String toString();
+
+    @Override
+    public abstract boolean equals(Object obj);
 
     //constructor
     public Person() {
