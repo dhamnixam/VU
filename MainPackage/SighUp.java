@@ -1,7 +1,7 @@
 package MainPackage;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
-
 import Exceptions.InvalidIDException;
 import Person.*;
 
@@ -17,7 +17,7 @@ public class SighUp {
     }
 
 
-    public void signUpMessages() throws InterruptedException , InvalidIDException {
+    public void signUpMessages() throws InterruptedException , InvalidIDException , InputMismatchException {
         String repeat_password;
         boolean sw = false;
         String errorMessage = "your input is invalid!";
@@ -28,11 +28,19 @@ public class SighUp {
         System.out.println("Enter these information...");
 
         do {
-            System.out.println("Your role: ");
-            System.out.println("student = 1");
-            System.out.println("teacher = 2");
-            System.out.println("admin = 3");
-            int role = in.nextInt();
+            int role;
+            try {
+                System.out.println("Your role: ");
+                System.out.println("student = 1");
+                System.out.println("teacher = 2");
+                System.out.println("admin = 3");
+                role = in.nextInt();
+            }
+            catch (InputMismatchException e){
+                System.out.println(errorMessage);
+                in.next();
+                continue;
+            }
             if (role == 1 || role == 2 || role == 3) {
                 sw = true;
                 switch (role) {
@@ -47,7 +55,7 @@ public class SighUp {
                     case 3:
                         user = new Admin();
                         break;
-                
+
                     default:
                         break;
                 }
@@ -68,8 +76,6 @@ public class SighUp {
 
         } while (sw == false) ;
         sw = false;
-        
-        
         do {
             System.out.print("last name: ");
             if (user.setLastName(in.nextLine()))
@@ -106,7 +112,7 @@ public class SighUp {
                 sw = true;
             else
                 System.out.println(errorMessage);
-        } while (sw == false) ;  
+        } while (sw == false) ;
         sw = false;
 
 

@@ -1,6 +1,7 @@
 package Person;
 
 import Exceptions.InvalidIDException;
+import Exceptions.InvalidName;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -10,13 +11,13 @@ import java.util.Date;
 public class Utils {
 
 
-    public static boolean isNameValid(String name) {
+    public static boolean isNameValid(String name) throws InvalidName {
         if (name.matches("[a-zA-Z]+")) {
             if (name.length() <= 18) {
                 return true;
             }
         }
-        return false;
+        throw new InvalidName("Name is Not Valid");
     }
 
     public static boolean stuIsEduNumberValid(String number)throws InvalidIDException{

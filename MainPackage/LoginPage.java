@@ -1,5 +1,6 @@
 package MainPackage;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import Exceptions.InvalidIDException;
@@ -10,7 +11,7 @@ public class LoginPage {
     private Person user;
     
 
-    public void loginMessages() throws InterruptedException , InvalidIDException {
+    public void loginMessages() throws InterruptedException , InvalidIDException , InputMismatchException {
         boolean sw = false;
         String errorMessage = "your input is invalid!";
         String ID_number;
