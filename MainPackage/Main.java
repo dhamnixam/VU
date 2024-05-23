@@ -1,7 +1,6 @@
 package MainPackage;
 
 import Exceptions.InvalidIDException;
-
 import java.util.Scanner;
 
 public class Main {
@@ -11,14 +10,30 @@ public class Main {
         Scanner in = new Scanner(System.in);
 
         if (in.next().equals("y")) {
-            LoginPage loginPage = new LoginPage();
-            loginPage.loginMessages();
+            try {
+                LoginPage loginPage = new LoginPage();
+                loginPage.loginMessages();
+            }
+            catch (InvalidIDException e){
+                System.out.println(e.getMessage());
+            }
+            finally {
+                System.out.println("ID Processed");
+            }
         }
         else {
-            SighUp signUp = new SighUp();
-            signUp.signUpMessages();
-            LoginPage loginPage = new LoginPage();
-            loginPage.loginMessages();
+            try {
+                SighUp signUp = new SighUp();
+                signUp.signUpMessages();
+                LoginPage loginPage = new LoginPage();
+                loginPage.loginMessages();
+            }
+            catch (InvalidIDException e ){
+                System.out.println(e.getMessage());
+            }
+            finally {
+                System.out.println("ID Processed");
+            }
         }
 
         
