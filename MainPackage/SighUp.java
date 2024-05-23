@@ -62,7 +62,7 @@ public class SighUp {
             }
             else
                 System.out.println(errorMessage);
-        } while (sw == false) ;
+        } while (!sw) ;
         in.nextLine();  //fix the bug of get an extra line from user
         sw = false;
 
@@ -74,7 +74,7 @@ public class SighUp {
             else
                 System.out.println(errorMessage);
 
-        } while (sw == false) ;
+        } while (!sw) ;
         sw = false;
         do {
             System.out.print("last name: ");
@@ -82,7 +82,7 @@ public class SighUp {
                 sw = true;
             else
                 System.out.println(errorMessage);
-        } while (sw == false) ;
+        } while (!sw) ;
         sw = false;
 
 
@@ -92,7 +92,7 @@ public class SighUp {
                 sw = true;
             else
                 System.out.println(errorMessage);
-        } while (sw == false) ;
+        } while (!sw) ;
         sw = false;
 
 
@@ -102,7 +102,7 @@ public class SighUp {
                 sw = true;
             else
                 System.out.println(errorMessage);
-        } while (sw == false) ;
+        } while (!sw) ;
         sw = false;
 
 
@@ -112,7 +112,7 @@ public class SighUp {
                 sw = true;
             else
                 System.out.println(errorMessage);
-        } while (sw == false) ;
+        } while (!sw) ;
         sw = false;
 
 
@@ -122,7 +122,7 @@ public class SighUp {
                 sw = true;
             else
                 System.out.println(errorMessage);
-        } while (sw == false) ;
+        } while (!sw) ;
         sw = false;
 
 
@@ -132,7 +132,7 @@ public class SighUp {
                 sw = true;
             else
                 System.out.println(errorMessage);
-        } while (sw == false) ;
+        } while (!sw) ;
         sw = false;
 
         do {
@@ -141,7 +141,7 @@ public class SighUp {
                 sw = true;
             else
                 System.out.println(errorMessage);
-        } while (sw == false) ;
+        } while (!sw) ;
         sw = false;
 
 
@@ -152,7 +152,7 @@ public class SighUp {
                 sw = true;
             else
                 System.out.println(errorMessage); 
-        } while (sw == false) ;
+        } while (!sw) ;
 
         addNewPerson(user);
     }

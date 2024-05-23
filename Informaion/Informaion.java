@@ -9,7 +9,7 @@ public class Informaion {
     }
 
     public void setPassage(String passage) {
-        if (passage.isEmpty() == false)
+        if (!passage.isEmpty())
             this.passage = passage;
         else
             this.passage = "Empty passage";

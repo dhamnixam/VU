@@ -2,7 +2,6 @@ package Person;
 
 import Exceptions.InvalidIDException;
 
-import java.util.Scanner;
 
 public class Admin extends Person{
     private Person[] users;

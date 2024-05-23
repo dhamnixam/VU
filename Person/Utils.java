@@ -43,15 +43,13 @@ public class Utils {
 
     public static boolean isUsernameValid(String username) {
         if (username.matches("[a-zA-Z0-9]+"))
-            if ((username.length() > 4) && (username.length()<13) ) {
-                return true;
-            }
+            return (username.length() > 4) && (username.length() < 13);
         return false;
     }
 
     public static boolean isPasswordValid(String password) {
         if (password.matches("[a-zA-Z0-9]+")) {
-            if ((password.length() > 7) && (password.length() <13)) return true;
+            return (password.length() > 7) && (password.length() < 13);
         }
         return false;
     }
