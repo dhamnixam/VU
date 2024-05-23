@@ -149,8 +149,16 @@ public class Teacher extends Person{
                 break;
             }
         }
+        std.addTeacher(this);
         if (sw) {
             System.out.println("You can't, have another student.");
         }
+    }
+
+    public Student getValueAt_stuents(int i) {
+        if (i < students.length && i >= 0) {
+            return students[i];
+        }
+        return null;
     }
 }

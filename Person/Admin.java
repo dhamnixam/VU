@@ -1,5 +1,7 @@
 package Person;
 
+import java.util.Scanner;
+
 public class Admin extends Person{
     private Person[] users;
     private int userCount = 0;
@@ -104,4 +106,5 @@ public class Admin extends Person{
 
         System.out.println("User doesn't found");
     }
+
 }

@@ -1,12 +1,12 @@
 package Person;
 
 public class Student extends Person{
-    // protected Teacher[] teachers;   //teachers of this student
+    protected Teacher[] teachers;   //teachers of this student
 
     public Student() {
         super();
         setRole(student_role);
-        // teachers = new Teacher[10];
+        teachers = new Teacher[10];
     }
 
     @Override 
@@ -34,5 +34,20 @@ public class Student extends Person{
         }
         else 
             return false;
+    }
+
+    public void addTeacher(Teacher tchr) {
+        for (int i = 0; i < teachers.length; i++) {
+            if (teachers[i] == null) {
+                teachers[i] = tchr;
+            }
+        }
+    }
+
+    public Teacher getValueAt_teachers(int i) {
+        if (i < teachers.length && i >= 0) {
+            return teachers[i];
+        }
+        return null;
     }
 }

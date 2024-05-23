@@ -30,7 +30,7 @@ public abstract class Person {
     public void printTasks() throws InterruptedException {
         System.out.println("---YOUR TASKS---");
         for (int i = 0; i < taskCount; i++) {
-            System.out.println(Integer.toString(i + 1) + tasks[i].getSubject());
+            System.out.println(Integer.toString(i + 1) + ")" + tasks[i].getSubject());
             System.out.println("------------------");
             Thread.sleep(1000);
         }
@@ -51,7 +51,7 @@ public abstract class Person {
 
     public void printInformation() throws InterruptedException {
         for (int i = 0; i < UserPanel.getInformationAmount(); i++) {
-            System.out.println(Integer.toString(i-1) + "-" + UserPanel.Informaion[i].toString());
+            System.out.println(Integer.toString(i-1) + ")" + UserPanel.Informaion[i].toString());
         }
             
         System.out.println("------------------");

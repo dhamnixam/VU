@@ -53,6 +53,12 @@ public abstract class Task {
         return subject;
     }
 
+    public void setSubject(String subject) {
+        if (!subject.isEmpty()) {
+            this.subject = subject;
+        }
+    }
+
     public String timeToString(double time) {
         int houre = (int)time;
         int minute = (int)time - houre;
