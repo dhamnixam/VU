@@ -2,6 +2,7 @@ package Person;
 
 import java.util.Scanner;
 
+import Exceptions.InvalidIDException;
 import Task.*;
 
 public class Teacher extends Person{
@@ -31,7 +32,7 @@ public class Teacher extends Person{
             return false;
     }
  
-    public boolean setID_number(String ID_number) {
+    public boolean setID_number(String ID_number) throws InvalidIDException {
         if (Utils.TeacherIsEduNumberValid(ID_number)) { 
             this.ID_number = ID_number;
             return true;
@@ -102,7 +103,7 @@ public class Teacher extends Person{
         System.out.println("Task removed successfuly");
     }
 
-    public void addStudent() {
+    public void addStudent() throws InvalidIDException {
         Student std = new Student();
         String name;
         String lastName;

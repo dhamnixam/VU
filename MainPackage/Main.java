@@ -1,9 +1,11 @@
 package MainPackage;
 
+import Exceptions.InvalidIDException;
+
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException , InvalidIDException {
                 
         System.out.println("Do you have account? if yes press y else press any key");
         Scanner in = new Scanner(System.in);

@@ -1,5 +1,7 @@
 package Person;
 
+import Exceptions.InvalidIDException;
+
 import java.util.Scanner;
 
 public class Admin extends Person{
@@ -30,7 +32,7 @@ public class Admin extends Person{
             return false;
     }
 
-    public boolean setID_number(String ID_number) {
+    public boolean setID_number(String ID_number) throws InvalidIDException {
         if (Utils.adminIsEduNumberValid(ID_number)) { 
             this.ID_number = ID_number;
             return true;

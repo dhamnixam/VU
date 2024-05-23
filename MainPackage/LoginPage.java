@@ -2,6 +2,7 @@ package MainPackage;
 
 import java.util.Scanner;
 
+import Exceptions.InvalidIDException;
 import Person.*;
 
 public class LoginPage {
@@ -9,7 +10,7 @@ public class LoginPage {
     private Person user;
     
 
-    public void loginMessages() throws InterruptedException {
+    public void loginMessages() throws InterruptedException , InvalidIDException {
         boolean sw = false;
         String errorMessage = "your input is invalid!";
         String ID_number;

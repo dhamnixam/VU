@@ -2,6 +2,7 @@ package MainPackage;
 
 import java.util.Scanner;
 
+import Exceptions.InvalidIDException;
 import Person.*;
 
 public class SighUp {
@@ -16,7 +17,7 @@ public class SighUp {
     }
 
 
-    public void signUpMessages() throws InterruptedException {
+    public void signUpMessages() throws InterruptedException , InvalidIDException {
         String repeat_password;
         boolean sw = false;
         String errorMessage = "your input is invalid!";

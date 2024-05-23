@@ -1,5 +1,7 @@
 package Person;
 
+import Exceptions.InvalidIDException;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.text.SimpleDateFormat;
@@ -17,17 +19,17 @@ public class Utils {
         return false;
     }
 
-    public static boolean stuIsEduNumberValid(String number){
+    public static boolean stuIsEduNumberValid(String number)throws InvalidIDException{
         if (number.length() == 10 && number.matches("\\d+") ) return true;
-           return false;
+        throw new InvalidIDException("Student Id is Invalid");
     }
-    public static boolean TeacherIsEduNumberValid(String number){
+    public static boolean TeacherIsEduNumberValid(String number)throws InvalidIDException{
         if (number.length() == 6 && number.matches("\\d+")) return true;
-        return false;
+        throw new InvalidIDException("Teacher Id is Invalid");
     }
-    public static boolean adminIsEduNumberValid(String number){
+    public static boolean adminIsEduNumberValid(String number) throws InvalidIDException {
         if (number.length() == 4 && number.matches("\\d+")) return true;
-        return false;
+        throw new InvalidIDException("Admin Id is Invalid");
     }
 
     public static boolean isEmailValid(String email) {
