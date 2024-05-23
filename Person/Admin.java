@@ -107,4 +107,33 @@ public class Admin extends Person{
         System.out.println("User doesn't found");
     }
 
+    public void removeTask() {
+        for (int i = 0; i < taskCount; i++) {
+            System.out.println(Integer.toString(i+1) + ") " +tasks[i].toString());
+        }
+
+        System.out.print("Enter number of task that you want to remove and if you don't want to remove press 0: ");
+        Scanner in = new Scanner(System.in);
+        int command = 0;
+        while (true) {
+            command = in.nextInt();
+            if (command < 0 || command > taskCount) 
+                System.out.println("invalid input! Enter another one");
+            else
+                break;
+        }
+
+        if (command == 0) {
+            return;
+        }
+
+        tasks[command - 1] = null;
+        for (int i = command; i < taskCount; i++) {
+            tasks[i - 1] = tasks[i];
+        }
+        taskCount--;
+
+        System.out.println("Task removed successfuly");
+    }
+
 }

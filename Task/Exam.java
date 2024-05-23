@@ -13,7 +13,17 @@ public class Exam extends Task{
 
     @Override
     public String toString() {
-        return "Exam:\n" + "start at " + timeToString(start_time) + "\n" + "end at " + timeToString(end_time);
+        String str = "";
+        str += "Type: Exam\n";
+        str += "Started at: " + timeToString(start_time) + "\n";
+        str += "End at: " + timeToString(end_time) + "\n";
+        if (getCurrentTime() > end_time) {
+            str += "Situation: " + "expired";
+        }
+        else {
+            str += "Situation: " + "unexpired";
+        }
+        return str;
     }
 
     public void addTest(String title, String one, String two, String three, String four, int answer){

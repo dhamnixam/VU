@@ -60,13 +60,9 @@ public abstract class Person {
     }
 
     public void printTask_details(int i) throws InterruptedException {
-        System.out.println("------------------------");
-        System.out.println("-------------------");
         System.out.println("--------------");
         System.out.println(tasks[i].toString());
         System.out.println("--------------");
-        System.out.println("-------------------");
-        System.out.println("------------------------");
         Thread.sleep(750);
         printTasks();
     }

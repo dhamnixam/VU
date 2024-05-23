@@ -1,5 +1,7 @@
 package Task;
 
+import java.util.*; 
+
 public abstract class Task {
     protected String subject;
     protected double start_time;
@@ -9,10 +11,20 @@ public abstract class Task {
     public final int VALUE_OF_EXAM = 0;
     public final int VALUE_OF_HOMEWORK = 1;
 
+    private static Calendar systemTime;
+
     public Task(String subject, double start_time, double end_time) {
+        systemTime = Calendar.getInstance(); 
         this.subject = subject;
         setStart_time(start_time);
         setEnd_time(end_time);
+    }
+
+    public static double getCurrentTime() {
+        double houre = (double)systemTime.get(Calendar.HOUR_OF_DAY);
+        double minute = (double)systemTime.get(Calendar.MINUTE) / 100;
+        double time = houre + minute;
+        return time;
     }
 
     public void setStart_time(double start_time) {

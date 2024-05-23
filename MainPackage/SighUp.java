@@ -150,7 +150,7 @@ public class SighUp {
         addNewPerson(user);
     }
 
-    private static void addNewPerson(Person user) throws InterruptedException {
+    public static void addNewPerson(Person user) throws InterruptedException {
         if (user instanceof Student) {
             persons[persons_counter] = (Student)user;
         }

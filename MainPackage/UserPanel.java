@@ -1,8 +1,9 @@
 package MainPackage;
 
 import Person.*;
+import Task.Task;
 
-import java.util.Scanner;
+import java.util.Scanner; 
 
 import Informaion.*;
 
@@ -72,7 +73,7 @@ public class UserPanel {
         Scanner in = new Scanner(System.in);
         while (true) {
             command = in.nextInt();
-            if (command < InformationAmount && command >= 0) {
+            if (command <= InformationAmount && command > 0) {
                 passage = in.nextLine();
                 Informaion[command - 1].setPassage(passage);
                 System.out.println("Information edited successfuly!");
@@ -90,30 +91,35 @@ public class UserPanel {
         Scanner in = new Scanner(System.in);
         int command;
         while (true) {
-            System.out.println("Add new task) 1");
+            System.out.println("Task detail) 1");
             Thread.sleep(750);
-            System.out.println("Remove task) 2");
+            System.out.println("Add new task) 2");
             Thread.sleep(750);
-            System.out.println("Edit) 3");
+            System.out.println("Remove task) 3");
             Thread.sleep(750);
-            System.out.println("Back) 4");
+            System.out.println("Edit) 4");
             Thread.sleep(750);
-            System.out.println("Home) 5");
+            System.out.println("Back) 5");
+            Thread.sleep(750);
+            System.out.println("Home) 6");
             command = in.nextInt();
             switch (command) {
                 case 1:
-                    addTask_tab();
+                    taskDetile_tab();
                     break;
                 case 2:
-                    removeTask_tab();
+                    addTask_tab();
                     break;
                 case 3:
-                    editTask_tab();
+                    removeTask_tab();
                     break;
                 case 4:
-                user.printTasks();
+                    editTask_tab();
                     break;
                 case 5:
+                user.printTasks();
+                    break;
+                case 6:
                     main_tab();
                     break;
             
@@ -125,25 +131,25 @@ public class UserPanel {
 
     private void addTask_tab() throws InterruptedException {
         Scanner in = new Scanner(System.in);
-        String command = "";
+        int command;
         while (true) {
-            System.out.println("[quiz] to add quiz");
+            System.out.println("Quiz) 1");
             Thread.sleep(750);
-            System.out.println("[exam] to add exam");
+            System.out.println("Exam) 2");
             Thread.sleep(750);
-            System.out.println("[homework] to add home work");
+            System.out.println("Home work) 3");
             Thread.sleep(750);
-            System.out.println("[back] to back");
+            System.out.println("Back) 4");
             Thread.sleep(750);
-            System.out.println("[home] to main tab");
+            System.out.println("Home) 5");
             
-            command = in.next();
+            command = in.nextInt();
 
-            if (command.equals("back")) {
+            if (command == 4) {
                 task_mannager_tab();
                 return;
             }
-            else if (command.equals("home")) {
+            else if (command == 5) {
                 main_tab();
                 return;
             }
@@ -155,17 +161,21 @@ public class UserPanel {
             double start_time = in.nextDouble();
             System.out.print("finish time: ");
             double finish_time = in.nextDouble();
-            System.out.print("number of questions: ");
-            int numbers = in.nextInt();
+            int numbers = 0;
+            if (command != 3) {
+                System.out.print("number of questions: ");
+                numbers = in.nextInt();
+            }
+            
 
             switch (command) {
-                case "quiz":
+                case 1:
                     ((Teacher)user).addNewQuiz(subject, start_time, finish_time);//باید این متد را در اذمین هم پیاده سازی کنیم
                     break;
-                case "exam":
-                    ((Teacher)user).addNewExam(subject, start_time, finish_time ,numbers);
+                case 2:
+                    ((Teacher)user).addNewExam(subject, start_time, finish_time ,numbers); //بعد از وارد کردن تعداد سوالات باید متن آنها را هم وارد کرد
                     break;
-                case "homework":
+                case 3:
                     ((Teacher)user).addNewHomeWork(subject, start_time, finish_time);
                     break;
             
@@ -177,24 +187,35 @@ public class UserPanel {
     }
 
     private void removeTask_tab() throws InterruptedException {
-        String command = "";
+        int command;
         Scanner in = new Scanner(System.in);
         while (true) {
             ((Teacher)user).removeTask();
-            System.out.println("[remove] to remove another student: ");
+            System.out.println("Remove) 1");
             Thread.sleep(750);
-            System.out.println("[back] to back: ");
+            System.out.println("Back) 2");
             Thread.sleep(750);
-            System.out.println("[home] to main tab: ");
-            command = in.next();
+            System.out.println("Home) 3");
+            command = in.nextInt();
 
-            if (command.equals("back")) {
-                task_mannager_tab();
-                return;
-            }
-            else if (command.equals("home")) {
-                main_tab();
-                return;
+            switch (command) {
+                case 1:
+                    if (user instanceof Teacher) {
+                        ((Teacher)user).removeTask();
+                    }
+                    else if (user instanceof Admin) {
+                        ((Admin)user).removeTask();
+                    }
+                    break;
+                case 2:
+                    task_mannager_tab();
+                    break;
+                case 3:
+                    main_tab();
+                    break;
+            
+                default:
+                    break;
             }
         }
     }
@@ -210,7 +231,7 @@ public class UserPanel {
         String subject;
         while (true) {
             command = in.nextInt();
-            if (command < user.taskCount && command >= 0) {
+            if (command <= user.taskCount && command > 0) {
                 System.out.print("Set the start time: ");
                 start_time = in.nextDouble();
                 user.tasks[command - 1].setStart_time(start_time);
@@ -227,6 +248,18 @@ public class UserPanel {
         }
     }
 
+    private void taskDetile_tab() throws InterruptedException {
+        user.printTasks();
+        System.out.print("Which task do you want? ");
+        Scanner in = new Scanner(System.in);
+        int command;
+        while (true) {
+            command = in.nextInt();
+            if (command <= user.taskCount && command > 0) {
+                user.printTask_details(command - 1);
+            }
+        }
+    }
 
     private void information_mannager_tab() throws InterruptedException {
         System.out.println("---INFORMATION MANNAGER TAB---");
@@ -308,6 +341,7 @@ public class UserPanel {
             //     System.out.println("Add new student) 4");
             //     Thread.sleep(750);
             // }
+            System.out.println("Current server time: " + Task.getCurrentTime());
             System.out.println("Exit) 0");
             Thread.sleep(750);
             System.out.print("Type a number here: ");
