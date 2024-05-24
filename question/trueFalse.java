@@ -25,7 +25,6 @@ public class trueFalse extends question{
         return i ;
     }
     public boolean isAnswerCorrect(){
-        if (getAnswer()==answer) return true;
-        else return false;
+        return getAnswer() == answer;
     }
 }

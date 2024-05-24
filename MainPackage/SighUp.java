@@ -1,7 +1,8 @@
 package MainPackage;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
-
+import Exceptions.InvalidIDException;
 import Person.*;
 
 public class SighUp {
@@ -16,7 +17,7 @@ public class SighUp {
     }
 
 
-    public void signUpMessages() throws InterruptedException {
+    public void signUpMessages() throws InterruptedException , InvalidIDException , InputMismatchException {
         String repeat_password;
         boolean sw = false;
         String errorMessage = "your input is invalid!";
@@ -27,11 +28,19 @@ public class SighUp {
         System.out.println("Enter these information...");
 
         do {
-            System.out.println("Your role: ");
-            System.out.println("student = 1");
-            System.out.println("teacher = 2");
-            System.out.println("admin = 3");
-            int role = in.nextInt();
+            int role;
+            try {
+                System.out.println("Your role: ");
+                System.out.println("student = 1");
+                System.out.println("teacher = 2");
+                System.out.println("admin = 3");
+                role = in.nextInt();
+            }
+            catch (InputMismatchException e){
+                System.out.println(errorMessage);
+                in.next();
+                continue;
+            }
             if (role == 1 || role == 2 || role == 3) {
                 sw = true;
                 switch (role) {
@@ -46,14 +55,14 @@ public class SighUp {
                     case 3:
                         user = new Admin();
                         break;
-                
+
                     default:
                         break;
                 }
             }
             else
                 System.out.println(errorMessage);
-        } while (sw == false) ;
+        } while (!sw) ;
         in.nextLine();  //fix the bug of get an extra line from user
         sw = false;
 
@@ -65,17 +74,15 @@ public class SighUp {
             else
                 System.out.println(errorMessage);
 
-        } while (sw == false) ;
+        } while (!sw) ;
         sw = false;
-        
-        
         do {
             System.out.print("last name: ");
             if (user.setLastName(in.nextLine()))
                 sw = true;
             else
                 System.out.println(errorMessage);
-        } while (sw == false) ;
+        } while (!sw) ;
         sw = false;
 
 
@@ -85,7 +92,7 @@ public class SighUp {
                 sw = true;
             else
                 System.out.println(errorMessage);
-        } while (sw == false) ;
+        } while (!sw) ;
         sw = false;
 
 
@@ -95,7 +102,7 @@ public class SighUp {
                 sw = true;
             else
                 System.out.println(errorMessage);
-        } while (sw == false) ;
+        } while (!sw) ;
         sw = false;
 
 
@@ -105,7 +112,7 @@ public class SighUp {
                 sw = true;
             else
                 System.out.println(errorMessage);
-        } while (sw == false) ;  
+        } while (!sw) ;
         sw = false;
 
 
@@ -115,7 +122,7 @@ public class SighUp {
                 sw = true;
             else
                 System.out.println(errorMessage);
-        } while (sw == false) ;
+        } while (!sw) ;
         sw = false;
 
 
@@ -125,7 +132,7 @@ public class SighUp {
                 sw = true;
             else
                 System.out.println(errorMessage);
-        } while (sw == false) ;
+        } while (!sw) ;
         sw = false;
 
         do {
@@ -134,7 +141,7 @@ public class SighUp {
                 sw = true;
             else
                 System.out.println(errorMessage);
-        } while (sw == false) ;
+        } while (!sw) ;
         sw = false;
 
 
@@ -145,7 +152,7 @@ public class SighUp {
                 sw = true;
             else
                 System.out.println(errorMessage); 
-        } while (sw == false) ;
+        } while (!sw) ;
 
         addNewPerson(user);
     }

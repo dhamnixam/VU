@@ -1,5 +1,6 @@
 package Person;
 
+import Exceptions.InvalidIDException;
 import Task.*;
 
 import java.util.Scanner;
@@ -132,7 +133,7 @@ public abstract class Person {
             return false;
     }
 
-    public abstract boolean setID_number(String ID_number);
+    public abstract boolean setID_number(String ID_number) throws InvalidIDException;
 
     public boolean setEmail(String email) {
         if (Utils.isEmailValid(email)) {

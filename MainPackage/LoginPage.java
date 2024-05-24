@@ -1,7 +1,9 @@
 package MainPackage;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import Exceptions.InvalidIDException;
 import Person.*;
 
 public class LoginPage {
@@ -9,7 +11,7 @@ public class LoginPage {
     private Person user;
     
 
-    public void loginMessages() throws InterruptedException {
+    public void loginMessages() throws InterruptedException , InvalidIDException , InputMismatchException {
         boolean sw = false;
         String errorMessage = "your input is invalid!";
         String ID_number;
@@ -34,7 +36,7 @@ public class LoginPage {
                 sw = false;
             }
             
-        } while (sw == false);
+        } while (!sw);
         sw = false;
 
 
@@ -45,7 +47,7 @@ public class LoginPage {
                 sw = true;
             else
                 System.out.println(errorMessage);
-        } while (sw == false);
+        } while (!sw);
 
         boolean show_message_sw = false;
         for (int i = 0; SighUp.persons[i] != null; i++) {
@@ -61,7 +63,7 @@ public class LoginPage {
                 break;
             }
         }
-        if (show_message_sw == false) {
+        if (!show_message_sw) {
             System.out.println("Ther is no account with this information.you have to signup first...");
         }  
         else {

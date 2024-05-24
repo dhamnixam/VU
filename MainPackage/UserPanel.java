@@ -53,7 +53,7 @@ public class UserPanel {
         
     }
 
-    private void deleteInformation(int index) throws InterruptedException {
+    private void deleteInformation(int index)  {
         if (index >= 0 && index < InformationAmount) {
             Informaion[index] = null;
             for (int i = index; i + 1 < InformationAmount; i++) {

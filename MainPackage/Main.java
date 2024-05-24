@@ -1,10 +1,13 @@
 package MainPackage;
 
+import Exceptions.InvalidIDException;
+import java.util.Scanner;
 import Person.Teacher;
 
 public class Main {
-    public static void main(String[] args) throws InterruptedException {
-
+    public static void main(String[] args) throws InterruptedException , InvalidIDException {
+                
+        System.out.println("Do you have account? if yes press y else press any key");
         Teacher t = new Teacher();
 
         t.setID_number("147258");
@@ -15,20 +18,33 @@ public class Main {
         LoginPage loginPage = new LoginPage();
         loginPage.loginMessages();
 
-
-                
-        // System.out.println("Do you have account? if yes press y else press any key");
         // Scanner in = new Scanner(System.in);
 
         // if (in.next().equals("y")) {
-        //     LoginPage loginPage = new LoginPage();
-        //     loginPage.loginMessages();
+        //     try {
+        //         LoginPage loginPage = new LoginPage();
+        //         loginPage.loginMessages();
+        //     }
+        //     catch (InvalidIDException e){
+        //         System.out.println(e.getMessage());
+        //     }
+        //     finally {
+        //         System.out.println("ID Processed");
+        //     }
         // }
         // else {
-        //     SighUp signUp = new SighUp();
-        //     signUp.signUpMessages();
-        //     LoginPage loginPage = new LoginPage();
-        //     loginPage.loginMessages();
+        //     try {
+        //         SighUp signUp = new SighUp();
+        //         signUp.signUpMessages();
+        //         LoginPage loginPage = new LoginPage();
+        //         loginPage.loginMessages();
+        //     }
+        //     catch (InvalidIDException e ){
+        //         System.out.println(e.getMessage());
+        //     }
+        //     finally {
+        //         System.out.println("ID Processed");
+        //     }
         // }
 
         

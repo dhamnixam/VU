@@ -1,5 +1,7 @@
 package Person;
 
+import Exceptions.InvalidIDException;
+
 public class Student extends Person{
     protected Teacher[] teachers;   //teachers of this student
 
@@ -27,7 +29,7 @@ public class Student extends Person{
             return false;
     }
 
-    public boolean setID_number(String ID_number) {
+    public boolean setID_number(String ID_number) throws InvalidIDException {
         if (Utils.stuIsEduNumberValid(ID_number)) { 
             this.ID_number = ID_number;
             return true;
