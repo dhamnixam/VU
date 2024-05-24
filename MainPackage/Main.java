@@ -1,7 +1,7 @@
 package MainPackage;
 
 import Exceptions.InvalidIDException;
-import java.util.Scanner;
+// import java.util.Scanner;
 import Person.Teacher;
 
 public class Main {
