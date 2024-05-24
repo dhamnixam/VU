@@ -11,17 +11,19 @@ public abstract class Task {
     public final int VALUE_OF_EXAM = 0;
     public final int VALUE_OF_HOMEWORK = 1;
 
-    private static Calendar systemTime;
+    private static Calendar systemTime = Calendar.getInstance();
 
     public Task(String subject, double start_time, double end_time) {
-        systemTime = Calendar.getInstance(); 
         this.subject = subject;
         setStart_time(start_time);
         setEnd_time(end_time);
     }
 
     public static double getCurrentTime() {
-        double houre = (double)systemTime.get(Calendar.HOUR_OF_DAY);
+        double houre = (double)systemTime.get(Calendar.HOUR_OF_DAY) + 1;
+        if (houre == 24) {
+            houre = 0.00;
+        }
         double minute = (double)systemTime.get(Calendar.MINUTE) / 100;
         double time = houre + minute;
         return time;
@@ -71,9 +73,9 @@ public abstract class Task {
         }
     }
 
-    public String timeToString(double time) {
+    public static String timeToString(double time) {
         int houre = (int)time;
-        int minute = (int)time - houre;
+        int minute = (int)((time - houre) * 100);
 
         return Integer.toString(houre) + ":" + Integer.toString(minute);
     }

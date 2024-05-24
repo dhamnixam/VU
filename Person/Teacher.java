@@ -56,18 +56,44 @@ public class Teacher extends Person{
         if (taskCount < tasks.length) {
             tasks[taskCount] = quiz;
             taskCount++;
-            System.out.println("/quiz added successfuly/");
+            System.out.println("/Quiz added successfuly, now you have to initialize it!/");
+            Scanner in = new Scanner(System.in);
+            System.out.print("Please set the questoin: ");
+            quiz.setQuestion(in.nextLine());
+            System.out.println("/your question initialized/");
         }
         else
             System.out.println("your tasks are too many! remove some tasks");
     }
 
-    public void addNewExam(String subject, double setStart_time, double end_time  , int numbers) {
+    public void addNewExam(String subject, double setStart_time, double end_time, int numbers) {
         Exam exam = new Exam(subject, setStart_time, end_time ,numbers);
         if (taskCount < tasks.length) {
             tasks[taskCount] = exam;
             taskCount++;
-            System.out.println("/Exam added successfuly/");
+            System.out.println("/Exam added successfuly, now you have to initialize it!/");
+            Scanner in = new Scanner(System.in);
+            int type;
+            for (int i = numbers; i > 0; i--) {
+                System.out.print("Question NO." + Integer.toString(numbers - i + 1) + ")\nSet question type:");
+                System.out.println("Test)1\nTrueFalse)2\nDescriptive)3");
+                type = in.nextInt();
+                switch (type) {
+                    case 1:
+                        exam.addTest();
+                        break;
+                    case 2:
+                        exam.addTrueFalse();
+                        break;
+                    case 3:
+                        exam.addDescriptive();
+                        break;
+                
+                    default:
+                        continue;
+                }
+            }
+            System.out.println("/All the questions initialized successfuly/");
         }
         else
             System.out.println("your tasks are too many! remove some tasks");

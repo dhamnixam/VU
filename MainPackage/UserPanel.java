@@ -133,6 +133,8 @@ public class UserPanel {
         Scanner in = new Scanner(System.in);
         int command;
         while (true) {
+            System.out.println("---ADD TASK TAB---");
+            Thread.sleep(750);
             System.out.println("Quiz) 1");
             Thread.sleep(750);
             System.out.println("Exam) 2");
@@ -162,7 +164,7 @@ public class UserPanel {
             System.out.print("finish time: ");
             double finish_time = in.nextDouble();
             int numbers = 0;
-            if (command != 3) {
+            if (command == 2) {
                 System.out.print("number of questions: ");
                 numbers = in.nextInt();
             }
@@ -341,7 +343,7 @@ public class UserPanel {
             //     System.out.println("Add new student) 4");
             //     Thread.sleep(750);
             // }
-            System.out.println("Current server time: " + Task.getCurrentTime());
+            System.out.println("Current server time: " + Task.timeToString(Task.getCurrentTime()));
             System.out.println("Exit) 0");
             Thread.sleep(750);
             System.out.print("Type a number here: ");
